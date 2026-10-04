@@ -199,13 +199,13 @@ class ModerationCog(commands.Cog):
         deleted = await interaction.channel.purge(limit=count)
         await interaction.followup.send(f"🗑️ {len(deleted)}件のメッセージを削除しました。", ephemeral=True)
 
-    # ───────── チャンネル一括作成(最大15個まで) ─────────
-    @app_commands.command(name="create_channels", description="指定した名前のチャンネルを複数作成します(最大30個まで)")
-    @app_commands.describe(count="作成する個数(1〜30)", name="チャンネルの名前")
+    # ───────── チャンネル一括作成(最大500個まで) ─────────
+    @app_commands.command(name="create_channels", description="指定した名前のチャンネルを複数作成します(最大500個まで)")
+    @app_commands.describe(count="作成する個数(1〜500)", name="チャンネルの名前")
     @app_commands.checks.has_permissions(manage_channels=True)
     async def create_channels(self, interaction: discord.Interaction, count: int, name: str):
         # 悪用防止のため、入力値に関わらず必ず1〜30個の範囲に収める
-        count = max(1, min(count, 30))
+        count = max(1, min(count, 500))
         await interaction.response.defer(ephemeral=True)
 
         created = []
