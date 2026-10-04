@@ -200,7 +200,7 @@ class ModerationCog(commands.Cog):
         await interaction.followup.send(f"🗑️ {len(deleted)}件のメッセージを削除しました。", ephemeral=True)
 
     # ───────── チャンネル一括作成(最大15個まで) ─────────
-    @app_commands.command(name="create_channels", description="指定した名前のチャンネルを複数作成します(最大30個まで)")
+    @app_commands.command(name="create_channels", description="指定した名前のチャンネルを複数作成します(最大500個まで)")
     @app_commands.describe(count="作成する個数(1〜500)", name="チャンネルの名前")
     @app_commands.checks.has_permissions(manage_channels=True)
     async def create_channels(self, interaction: discord.Interaction, count: int, name: str):
