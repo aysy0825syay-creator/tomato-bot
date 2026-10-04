@@ -71,7 +71,7 @@ class HelpCog(commands.Cog):
     @app_commands.command(name="help", description="ボットのコマンド一覧をカテゴリ別に表示します")
     async def help(self, interaction: discord.Interaction):
         embed = discord.Embed(
-            title="🍅 とまとBot コマンド一覧",
+            title="tomato ai🍅 コマンド一覧",
             description="下のメニューからカテゴリを選んでください。",
             color=discord.Color.orange(),
         )
